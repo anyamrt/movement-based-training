@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Custom theme configuration for Tailwind v4 */
+@theme {
+  /* Fonts */
+  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-display: Montserrat, sans-serif;
+
+  /* Brand Colors */
+  --color-brand-dark: #1a1a1a;
+  --color-brand-light: #f8f9fa;
+  --color-brand-primary: #2563eb;
+  --color-brand-accent: #0ea5e9;
+  --color-brand-success: #10b981;
+  --color-brand-neutral: #6b7280;
+  --color-brand-orange: #f97316;
+}
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--color-brand-dark);
+    background-color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}

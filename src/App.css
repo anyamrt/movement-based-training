@@ -1,0 +1,6 @@
+/* Additional custom styles if needed */
+/* Most styling is handled by Tailwind CSS */
+
+#root {
+  min-height: 100vh;
+}
