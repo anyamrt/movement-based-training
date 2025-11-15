@@ -1,4 +1,4 @@
-import heroImage from '../assets/images/hero-image.avif';
+import heroImage from '../assets/images/image-3.avif';
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {

@@ -6,14 +6,15 @@
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-display: Montserrat, sans-serif;
 
-  /* Brand Colors */
+  /* Brand Colors - Blue & Yellow Theme */
   --color-brand-dark: #1a1a1a;
-  --color-brand-light: #f8f9fa;
-  --color-brand-primary: #2563eb;
-  --color-brand-accent: #0ea5e9;
+  --color-brand-light: #f0f4f8;
+  --color-brand-primary: #1D4ED8;     /* Royal Blue (matches logo) */
+  --color-brand-accent: #FDB913;      /* Bright Yellow/Gold */
   --color-brand-success: #10b981;
   --color-brand-neutral: #6b7280;
-  --color-brand-orange: #f97316;
+  --color-brand-orange: #FDB913;      /* Yellow for highlights */
+  --color-brand-blue-light: #3B82F6;  /* Light blue for accents */
 }
 
 /* Custom base styles */
