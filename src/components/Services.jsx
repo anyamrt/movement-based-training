@@ -58,7 +58,7 @@ const Services = () => {
             >
               {/* Badge */}
               {service.badge && (
-                <div className="absolute top-6 right-6 bg-brand-orange text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-6 right-6 bg-brand-yellow text-white px-4 py-1 rounded-full text-sm font-semibold">
                   {service.badge}
                 </div>
               )}
