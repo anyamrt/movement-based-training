@@ -8,31 +8,24 @@ const Services = () => {
 
   const services = [
     {
-      title: "Personal Training Single Session",
-      duration: "60 minutes",
-      price: "Contact for pricing",
+      title: "First Time Assessment + Session",
+      subtitle: "Buy One Get One Free",
+      price: "$110",
       features: [
+        "Comprehensive fitness assessment",
         "One-on-one personalized training",
         "Customized workout plan",
         "Technique coaching and feedback",
-        "Flexible scheduling",
-        "Focus on your specific goals"
+        "Second session completely free",
+        "Perfect for first-timers"
       ],
-      badge: "Popular"
+      badge: "First Time Only",
+      type: "single"
     },
     {
-      title: "New Starter Package",
-      duration: "4-6 sessions",
-      price: "Special rate available",
-      features: [
-        "Perfect for beginners",
-        "Comprehensive fitness assessment",
-        "Foundation building",
-        "Learn proper form and technique",
-        "Progressive program design",
-        "Ongoing support"
-      ],
-      badge: "Best Value"
+      title: "Ongoing Training Packages",
+      subtitle: "Flexible session plans",
+      type: "pricing-table"
     }
   ];
 
@@ -54,7 +47,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl shadow-xl p-8 relative overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-2"
+              className="bg-white rounded-3xl shadow-xl p-8 relative overflow-hidden hover:shadow-2xl transition-all"
             >
               {/* Badge */}
               {service.badge && (
@@ -66,38 +59,89 @@ const Services = () => {
               <h3 className="text-2xl font-bold text-brand-dark mb-2">
                 {service.title}
               </h3>
-              <div className="flex items-center gap-4 mb-4 text-gray-600">
-                <span className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {service.duration}
-                </span>
-              </div>
+              <p className="text-brand-primary font-semibold mb-6">
+                {service.subtitle}
+              </p>
 
-              <div className="mb-6">
-                <span className="text-3xl font-bold text-brand-primary">
-                  {service.price}
-                </span>
-              </div>
+              {service.type === 'single' ? (
+                <>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-brand-primary">
+                      {service.price}
+                    </span>
+                  </div>
 
-              <ul className="space-y-3 mb-8">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-brand-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-brand-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-              <button
-                onClick={scrollToContact}
-                className="w-full bg-brand-primary hover:bg-brand-accent text-white py-3 px-6 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md"
-              >
-                Book Now
-              </button>
+                  <button
+                    onClick={scrollToContact}
+                    className="w-full bg-brand-primary hover:bg-brand-accent text-white py-3 px-6 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md"
+                  >
+                    Book Now
+                  </button>
+                </>
+              ) : (
+                <>
+                  {/* Pricing Table */}
+                  <div className="overflow-x-auto mb-6">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b-2 border-brand-primary">
+                          <th className="text-left py-3 px-2 font-semibold text-brand-dark">Sessions/Week</th>
+                          <th className="text-center py-3 px-2 font-semibold text-brand-dark">30 min</th>
+                          <th className="text-center py-3 px-2 font-semibold text-brand-dark">45 min</th>
+                          <th className="text-center py-3 px-2 font-semibold text-brand-dark">60 min</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-200">
+                          <td className="py-3 px-2 font-medium">1x per week</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$80</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$100</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$110</td>
+                        </tr>
+                        <tr className="border-b border-gray-200">
+                          <td className="py-3 px-2 font-medium">2x per week</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$75</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$95</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$105</td>
+                        </tr>
+                        <tr className="border-b border-gray-200 bg-brand-light/30">
+                          <td className="py-3 px-2 font-medium">3x per week</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$70</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$90</td>
+                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$100</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="bg-brand-light rounded-xl p-4 mb-6">
+                    <p className="text-sm text-gray-700 mb-2">
+                      <span className="font-semibold">Note:</span> Prices shown are per session.
+                    </p>
+                    <p className="text-sm text-gray-700">
+                      <span className="font-semibold">Gym Fee:</span> Additional gym access fee may apply depending on location.
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={scrollToContact}
+                    className="w-full bg-brand-primary hover:bg-brand-accent text-white py-3 px-6 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md"
+                  >
+                    Get Started
+                  </button>
+                </>
+              )}
             </div>
           ))}
         </div>
