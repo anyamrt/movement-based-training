@@ -58,8 +58,8 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li>Bulimba, Brisbane, QLD</li>
               <li>
-                <a href="mailto:james@movementbasedtraining.com.au" className="hover:text-white transition-colors">
-                  james@movementbasedtraining.com.au
+                <a href="mailto:movementbasedtraining@gmail.com" className="hover:text-white transition-colors">
+                  movementbasedtraining@gmail.com
                 </a>
               </li>
             </ul>

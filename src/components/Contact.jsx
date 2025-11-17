@@ -39,8 +39,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-brand-dark mb-1">Email</h4>
-                    <a href="mailto:james@movementbasedtraining.com.au" className="text-brand-primary hover:text-brand-accent transition-colors">
-                      james@movementbasedtraining.com.au
+                    <a href="mailto:movementbasedtraining@gmail.com" className="text-brand-primary hover:text-brand-accent transition-colors">
+                      movementbasedtraining@gmail.com
                     </a>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ const Contact = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:james@movementbasedtraining.com.au"
+                href="mailto:movementbasedtraining@gmail.com"
                 className="block w-full bg-white hover:bg-gray-100 text-brand-primary py-4 px-6 rounded-full font-semibold text-center transition-all transform hover:scale-105 shadow-lg"
               >
                 Send an Email
