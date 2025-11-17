@@ -145,20 +145,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-
-        {/* Training Tools */}
-        <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12">
-          <h3 className="text-2xl font-bold text-brand-dark mb-6 text-center">
-            Training Tools & Methods
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            {['Kettlebells', 'Landmines', 'Bodyweight', 'Sandbags', 'Clubs', 'Maces', 'Ground Work', 'Mobility'].map((tool, index) => (
-              <div key={index} className="p-4 bg-brand-light rounded-xl">
-                <span className="font-medium text-brand-dark">{tool}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
