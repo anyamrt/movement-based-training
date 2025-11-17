@@ -6,15 +6,15 @@
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-display: Montserrat, sans-serif;
 
-  /* Brand Colors - Blue & Yellow Theme */
-  --color-brand-dark: #1a1a1a;
-  --color-brand-light: #f0f4f8;
-  --color-brand-primary: #1D4ED8;     /* Royal Blue (matches logo) */
-  --color-brand-accent: #FDB913;      /* Bright Yellow/Gold */
-  --color-brand-success: #10b981;
-  --color-brand-neutral: #6b7280;
-  --color-brand-orange: #FDB913;      /* Yellow for highlights */
-  --color-brand-blue-light: #3B82F6;  /* Light blue for accents */
+  /* Brand Colors - Clean Professional Theme */
+  --color-brand-dark: #2C3E50;        /* Dark blue-gray for text */
+  --color-brand-light: #F8F9FA;       /* Light gray background */
+  --color-brand-primary: #1D4ED8;     /* Royal Blue (logo blue) */
+  --color-brand-accent: #3B82F6;      /* Lighter blue for hover */
+  --color-brand-success: #10b981;     /* Green for success */
+  --color-brand-neutral: #6B7280;     /* Medium gray */
+  --color-brand-orange: #F59E0B;      /* Amber/gold for badges */
+  --color-brand-blue-light: #60A5FA;  /* Light blue accent */
 }
 
 /* Custom base styles */
