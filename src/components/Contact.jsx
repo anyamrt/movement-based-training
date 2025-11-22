@@ -27,7 +27,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-brand-dark mb-1">Location</h4>
-                    <p className="text-gray-600">Bulimba, Brisbane, QLD</p>
+                    <p className="text-gray-600">43 Goodwin St</p>
+                    <p className="text-gray-600">Bulimba, QLD 4171</p>
                   </div>
                 </div>
 
@@ -122,6 +123,28 @@ const Contact = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-16">
+          <h3 className="text-3xl font-bold text-brand-dark mb-6 text-center">
+            Find Us in Bulimba
+          </h3>
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.2547831627896!2d153.05935207634!3d-27.456644776337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a1c0b0c0c0b%3A0x0!2s43%20Goodwin%20St%2C%20Bulimba%20QLD%204171!5e0!3m2!1sen!2sau!4v1234567890"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Location Map - 43 Goodwin St, Bulimba QLD"
+            ></iframe>
+          </div>
+          <p className="text-center text-gray-600 mt-4">
+            <strong>43 Goodwin St, Bulimba QLD 4171</strong>
+          </p>
         </div>
       </div>
     </section>

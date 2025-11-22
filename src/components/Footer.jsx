@@ -56,7 +56,8 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Bulimba, Brisbane, QLD</li>
+              <li>43 Goodwin St</li>
+              <li>Bulimba, QLD 4171</li>
               <li>
                 <a href="mailto:movementbasedtraining@gmail.com" className="hover:text-white transition-colors">
                   movementbasedtraining@gmail.com
