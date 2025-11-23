@@ -7,27 +7,21 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Sarah M.",
-      role: "Marketing Professional",
-      text: "James's approach to training is completely different from anything I've tried before. The variety keeps me engaged, and I've gained strength and mobility I didn't think was possible.",
+      name: "Stephen Tregaskis",
+      role: "Client",
+      text: "James has been my trainer for over a year now. His professionalism is top tier. Just like his training programs and instructing skills. I seen amazing growth and my confidence in the gym has never been higher. I couldn't recommend James highly enough!",
       rating: 5
     },
     {
-      name: "Michael T.",
-      role: "Software Developer",
-      text: "After years of desk work, my body was a mess. James helped me understand how to move properly again. The 'leveling up' approach really resonates with me!",
+      name: "Gemma Thebault",
+      role: "Client",
+      text: "I started PT sessions with James 3 months ago and was amazed at the results in my strength and physical appearance in a very short time. Not only is James really knowledgeable and motivating he goes out of his way to create a program that focuses on individual goals and accommodates injuries. Could not imagine my week without my PT sessions, always pushing me to do and be better. Thank you James!!",
       rating: 5
     },
     {
-      name: "Emma L.",
-      role: "Yoga Instructor",
-      text: "As someone who teaches movement, I appreciate James's depth of knowledge. He's introduced me to tools and techniques that have enhanced my own practice immensely.",
-      rating: 5
-    },
-    {
-      name: "David R.",
-      role: "Business Owner",
-      text: "Training with James isn't just about getting stronger—it's about moving better in everyday life. I feel more capable and confident in everything I do.",
+      name: "Blake Coles",
+      role: "Client",
+      text: "Been training with James for twelve months now. Really enjoying the unique style of training I have really noticed an increase in my mobility and overall physique. Would definitely recommend",
       rating: 5
     }
   ];
