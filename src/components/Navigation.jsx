@@ -47,7 +47,7 @@ const Navigation = () => {
               alt="James Ashford Movement Based Training"
               className={clsx(
                 'transition-all',
-                isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'
+                isScrolled ? 'h-15 md:h-18' : 'h-18 md:h-21'
               )}
             />
           </button>

@@ -128,7 +128,7 @@ const Contact = () => {
         {/* Map Section */}
         <div className="mt-16">
           <h3 className="text-3xl font-bold text-brand-dark mb-6 text-center">
-            Find Us in Bulimba
+            Find us
           </h3>
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
             <iframe
