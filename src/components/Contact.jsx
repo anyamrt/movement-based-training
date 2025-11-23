@@ -132,11 +132,11 @@ const Contact = () => {
           </h3>
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.2996!2d153.0619!3d-27.4553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a1d7d7d7d7d%3A0x0!2s43%20Goodwin%20St%2C%20Bulimba%20QLD%204171!5e0!3m2!1sen!2sau!4v1700000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.6789!2d153.0619!3d-27.4553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a1c3df7a9e5%3A0xf02a35bd720a340!2s43%20Goodwin%20St%2C%20Bulimba%20QLD%204171%2C%20Australia!5e0!3m2!1sen!2sau"
               width="100%"
-              height="450"
+              height="400"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Location Map - 43 Goodwin St, Bulimba QLD 4171"
