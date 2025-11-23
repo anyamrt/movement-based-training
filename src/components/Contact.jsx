@@ -143,7 +143,7 @@ const Contact = () => {
             ></iframe>
           </div>
           <p className="text-center text-gray-600 mt-4">
-            <strong>43 godwin street, Bulimba 4171</strong>
+            <strong>Think 24hr Fitness, 43 Godwin Street, Bulimba</strong>
           </p>
         </div>
       </div>
