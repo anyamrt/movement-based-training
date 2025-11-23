@@ -54,10 +54,10 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <h3 className="text-xl font-bold mb-4">Find us</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>43 godwin street</li>
-              <li>Bulimba 4171</li>
+              <li>Think 24hr Fitness,</li>
+              <li>43 Godwin Street, Bulimba</li>
               <li>
                 <a href="mailto:movementbasedtraining@gmail.com" className="hover:text-white transition-colors">
                   movementbasedtraining@gmail.com
