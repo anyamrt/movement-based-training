@@ -13,12 +13,13 @@ const Footer = () => {
           <div>
             <button
               onClick={scrollToTop}
-              className="mb-4 hover:opacity-80 transition-opacity"
+              className="mb-4 hover:opacity-80 transition-opacity bg-brand-navy"
             >
               <img
                 src={logo}
                 alt="James Ashford Movement Based Training"
-                className="h-14 md:h-16"
+                className="h-14 md:h-16 bg-brand-navy"
+                style={{ backgroundColor: '#24355A' }}
               />
             </button>
             <p className="text-gray-400 mb-4">

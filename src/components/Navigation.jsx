@@ -40,15 +40,16 @@ const Navigation = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="hover:opacity-80 transition-opacity flex-shrink-0"
+            className="hover:opacity-80 transition-opacity flex-shrink-0 bg-brand-navy"
           >
             <img
               src={logo}
               alt="James Ashford Movement Based Training"
               className={clsx(
-                'transition-all',
+                'transition-all bg-brand-navy',
                 isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'
               )}
+              style={{ backgroundColor: '#24355A' }}
             />
           </button>
 
