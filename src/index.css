@@ -15,6 +15,7 @@
   --color-brand-neutral: #6B7280;     /* Medium gray */
   --color-brand-yellow: #FDB913;      /* Bright yellow accent */
   --color-brand-blue-light: #597dff;  /* Light blue from original */
+  --color-brand-navy: #24355A;        /* Navy blue for header/footer (Adobe RGB: 36, 53, 90) */
 }
 
 /* Custom base styles */

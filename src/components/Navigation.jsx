@@ -33,7 +33,7 @@ const Navigation = () => {
   return (
     <nav className={clsx(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      isScrolled ? 'bg-white shadow-md py-2' : 'bg-white shadow-sm py-3'
+      isScrolled ? 'bg-brand-navy shadow-md py-2' : 'bg-brand-navy shadow-sm py-3'
     )}>
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="flex items-center justify-between">
@@ -58,7 +58,7 @@ const Navigation = () => {
               <button
                 key={link.target}
                 onClick={() => scrollToSection(link.target)}
-                className="text-brand-dark hover:text-brand-primary transition-colors font-medium"
+                className="text-white hover:text-brand-yellow transition-colors font-medium"
               >
                 {link.label}
               </button>
@@ -74,7 +74,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-brand-dark"
+            className="md:hidden p-2 text-white"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,7 +94,7 @@ const Navigation = () => {
               <button
                 key={link.target}
                 onClick={() => scrollToSection(link.target)}
-                className="block w-full text-left py-3 text-brand-dark hover:text-brand-primary transition-colors font-medium border-b border-gray-200"
+                className="block w-full text-left py-3 text-white hover:text-brand-yellow transition-colors font-medium border-b border-white/20"
               >
                 {link.label}
               </button>
