@@ -1,4 +1,5 @@
 import profileImage from '../assets/images/profile-image.avif';
+import heroImage from '../assets/images/image-3.avif';
 
 const About = () => {
   return (
@@ -95,6 +96,22 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Feature Image Section */}
+        <div className="mb-16 relative rounded-3xl overflow-hidden shadow-2xl h-80 md:h-96">
+          <img
+            src={heroImage}
+            alt="Training in action"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
+            <div className="p-8">
+              <p className="text-white text-2xl md:text-3xl font-bold">
+                Real training. Real results.
+              </p>
+            </div>
           </div>
         </div>
 
