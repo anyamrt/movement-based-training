@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Video files (deployed separately via Vercel)
+public/*.mp4
+public/*.webm
+public/*.mov
