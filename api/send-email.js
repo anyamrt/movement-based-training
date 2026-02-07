@@ -1,13 +1,11 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 /**
- * Vercel serverless function to send emails
+ * Vercel serverless function to send emails using Resend
  * Endpoint: POST /api/send-email
  *
- * Required environment variables:
- * - EMAIL_USER: Gmail address
- * - EMAIL_PASS: Gmail app password
- * - EMAIL_TO: Recipient email (movementbasedtraining@gmail.com)
+ * Required environment variable:
+ * - RESEND_API_KEY: Your Resend API key
  */
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -29,14 +27,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid email format' });
     }
 
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // Initialize Resend
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     let subject, htmlContent;
 
@@ -157,21 +149,21 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid form type' });
     }
 
-    // Send email
-    const info = await transporter.sendMail({
-      from: `"Movement Based Training Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO || 'movementbasedtraining@gmail.com',
+    // Send email using Resend
+    const data = await resend.emails.send({
+      from: 'Movement Based Training <onboarding@resend.dev>',
+      to: 'movementbasedtraining@gmail.com',
       replyTo: email,
       subject: subject,
       html: htmlContent,
     });
 
-    console.log('Email sent:', info.messageId);
+    console.log('Email sent via Resend:', data.id);
 
     return res.status(200).json({
       success: true,
       message: 'Email sent successfully',
-      messageId: info.messageId
+      messageId: data.id
     });
 
   } catch (error) {
