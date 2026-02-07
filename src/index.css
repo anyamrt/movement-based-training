@@ -9,8 +9,8 @@
   /* Brand Colors - Matching Original Website */
   --color-brand-dark: #151414;        /* Black text from original */
   --color-brand-light: #F8F9FA;       /* Light gray background */
-  --color-brand-primary: #0f2ccf;     /* Deep blue from original site */
-  --color-brand-accent: #2f5dff;      /* Lighter blue variation */
+  --color-brand-primary: #24355A;     /* Navy blue (matches header/footer) */
+  --color-brand-accent: #24355A;      /* Navy blue (matches header/footer) */
   --color-brand-success: #10b981;     /* Green for success */
   --color-brand-neutral: #6B7280;     /* Medium gray */
   --color-brand-yellow: #FDB913;      /* Bright yellow accent */

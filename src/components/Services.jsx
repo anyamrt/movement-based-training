@@ -19,12 +19,26 @@ const Services = () => {
         "Second session completely free",
         "Perfect for first-timers"
       ],
-      badge: "First Time Only",
+      type: "single"
+    },
+    {
+      title: "February Offer - 3 for 2 Deal",
+      subtitle: "New Students Only",
+      price: "$180",
+      priceSubtext: "Total for 3 sessions",
+      features: [
+        "Three 45 minute sessions",
+        "Pay for 2, get the 3rd free",
+        "Includes all gym fees",
+        "Perfect for new students",
+        "Personalized training approach",
+        "Build a strong foundation"
+      ],
       type: "single"
     },
     {
       title: "Ongoing Training Packages",
-      subtitle: "Flexible session plans",
+      subtitle: "45 minute sessions",
       type: "pricing-table"
     }
   ];
@@ -43,19 +57,12 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
               className="bg-white rounded-3xl shadow-xl p-8 relative overflow-hidden hover:shadow-2xl transition-all"
             >
-              {/* Badge */}
-              {service.badge && (
-                <div className="absolute top-6 right-6 bg-brand-yellow text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  {service.badge}
-                </div>
-              )}
-
               <h3 className="text-2xl font-bold text-brand-dark mb-2">
                 {service.title}
               </h3>
@@ -69,6 +76,9 @@ const Services = () => {
                     <span className="text-4xl font-bold text-brand-primary">
                       {service.price}
                     </span>
+                    {service.priceSubtext && (
+                      <p className="text-sm text-gray-600 mt-1">{service.priceSubtext}</p>
+                    )}
                   </div>
 
                   <ul className="space-y-3 mb-8">
@@ -93,44 +103,36 @@ const Services = () => {
                 <>
                   {/* Pricing Table */}
                   <div className="overflow-x-auto mb-6">
-                    <table className="w-full text-sm">
+                    <table className="w-full text-base">
                       <thead>
                         <tr className="border-b-2 border-brand-primary">
-                          <th className="text-left py-3 px-2 font-semibold text-brand-dark">Sessions/Week</th>
-                          <th className="text-center py-3 px-2 font-semibold text-brand-dark">30 min</th>
-                          <th className="text-center py-3 px-2 font-semibold text-brand-dark">45 min</th>
-                          <th className="text-center py-3 px-2 font-semibold text-brand-dark">60 min</th>
+                          <th className="text-left py-4 px-4 font-semibold text-brand-dark">Sessions/Week</th>
+                          <th className="text-center py-4 px-4 font-semibold text-brand-dark">45 min</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr className="border-b border-gray-200">
-                          <td className="py-3 px-2 font-medium">1x per week</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$80</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$100</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$110</td>
+                          <td className="py-4 px-4 font-medium text-gray-700">1x per week</td>
+                          <td className="py-4 px-4 text-center text-brand-primary font-bold text-xl">$95</td>
                         </tr>
                         <tr className="border-b border-gray-200">
-                          <td className="py-3 px-2 font-medium">2x per week</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$75</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$95</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$105</td>
+                          <td className="py-4 px-4 font-medium text-gray-700">2x per week</td>
+                          <td className="py-4 px-4 text-center text-brand-primary font-bold text-xl">$90</td>
                         </tr>
                         <tr className="border-b border-gray-200 bg-brand-light/30">
-                          <td className="py-3 px-2 font-medium">3x per week</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$70</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$90</td>
-                          <td className="py-3 px-2 text-center text-brand-primary font-semibold">$100</td>
+                          <td className="py-4 px-4 font-medium text-gray-700">3x per week</td>
+                          <td className="py-4 px-4 text-center text-brand-primary font-bold text-xl">$85</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
 
-                  <div className="bg-brand-light rounded-xl p-4 mb-6">
-                    <p className="text-sm text-gray-700 mb-2">
-                      <span className="font-semibold">Note:</span> Prices shown are per session.
+                  <div className="bg-brand-navy/10 border-2 border-brand-navy rounded-xl p-5 mb-6">
+                    <p className="text-base text-brand-dark font-bold mb-2">
+                      Compulsory Gym Membership: $18.95 per week
                     </p>
                     <p className="text-sm text-gray-700">
-                      <span className="font-semibold">Gym Fee:</span> Additional gym access fee may apply depending on location.
+                      Includes 24 hour gym access and programs outside of sessions
                     </p>
                   </div>
 
