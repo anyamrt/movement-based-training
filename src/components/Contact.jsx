@@ -111,22 +111,6 @@ const Contact = () => {
                 Get in touch with any questions or inquiries
               </p>
             </div>
-
-            <div className="mt-8 pt-8 border-t border-white/20">
-              <p className="text-sm text-white/75 mb-4">
-                Subscribe to get weekly fitness tips and training updates
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex-1 px-4 py-3 rounded-full text-brand-dark focus:outline-none focus:ring-2 focus:ring-white"
-                />
-                <button className="bg-brand-dark hover:bg-gray-900 text-white px-6 py-3 rounded-full font-semibold transition-all whitespace-nowrap">
-                  Subscribe
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
