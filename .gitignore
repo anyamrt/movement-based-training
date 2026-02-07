@@ -28,3 +28,4 @@ dist-ssr
 public/*.mp4
 public/*.webm
 public/*.mov
+.env.local

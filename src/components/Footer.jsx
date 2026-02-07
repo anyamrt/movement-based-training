@@ -1,6 +1,10 @@
 import logo from '../assets/images/logo.png';
+import { useModal } from '../hooks/useModal';
+import PaymentModal from './PaymentModal';
 
 const Footer = () => {
+  const { isOpen: isPaymentOpen, openModal: openPaymentModal, closeModal: closePaymentModal } = useModal();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -49,6 +53,14 @@ const Footer = () => {
                   </button>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={openPaymentModal}
+                  className="text-brand-yellow hover:text-white transition-colors font-semibold"
+                >
+                  Pay for a Session
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -82,6 +94,9 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+      {/* Payment Modal */}
+      <PaymentModal isOpen={isPaymentOpen} onClose={closePaymentModal} />
     </footer>
   );
 };
