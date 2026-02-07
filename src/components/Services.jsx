@@ -1,45 +1,32 @@
+import { useModal } from '../hooks/useModal';
+import BookingFormModal from './BookingFormModal';
+
 const Services = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { isOpen: isBookingOpen, openModal: openBookingModal, closeModal: closeBookingModal } = useModal();
 
   const services = [
     {
-      title: "First Time Assessment + Session",
-      subtitle: "Buy One Get One Free",
-      price: "$110",
-      features: [
-        "Comprehensive fitness assessment",
-        "One-on-one personalized training",
-        "Customized workout plan",
-        "Technique coaching and feedback",
-        "Second session completely free",
-        "Perfect for first-timers"
-      ],
-      type: "single"
-    },
-    {
-      title: "February Offer - 3 for 2 Deal",
-      subtitle: "New Students Only",
-      price: "$180",
+      title: "New Client Intro Package, 3 for 2",
+      subtitle: "Perfect for getting started",
+      price: "$190",
       priceSubtext: "Total for 3 sessions",
       features: [
         "Three 45 minute sessions",
         "Pay for 2, get the 3rd free",
         "Includes all gym fees",
-        "Perfect for new students",
         "Personalized training approach",
-        "Build a strong foundation"
+        "Comprehensive fitness assessment",
+        "Customized workout plan",
+        "Technique coaching and feedback"
       ],
       type: "single"
     },
     {
       title: "Ongoing Training Packages",
       subtitle: "45 minute sessions",
-      type: "pricing-table"
+      price: "$95",
+      priceSubtext: "per session",
+      type: "ongoing"
     }
   ];
 
@@ -57,7 +44,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
@@ -93,48 +80,75 @@ const Services = () => {
                       ))}
                     </ul>
                   </>
-                ) : (
+                ) : service.type === 'ongoing' ? (
                   <>
-                    {/* Pricing Table */}
-                    <div className="overflow-x-auto mb-6">
-                      <table className="w-full text-base">
-                        <thead>
-                          <tr className="border-b-2 border-brand-primary">
-                            <th className="text-left py-4 px-4 font-semibold text-brand-dark">Sessions/Week</th>
-                            <th className="text-center py-4 px-4 font-semibold text-brand-dark">45 min</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="border-b border-gray-200">
-                            <td className="py-4 px-4 font-medium text-gray-700">1x per week</td>
-                            <td className="py-4 px-4 text-center text-brand-primary font-bold text-xl">$95</td>
-                          </tr>
-                          <tr className="border-b border-gray-200">
-                            <td className="py-4 px-4 font-medium text-gray-700">2x per week</td>
-                            <td className="py-4 px-4 text-center text-brand-primary font-bold text-xl">$90</td>
-                          </tr>
-                          <tr className="border-b border-gray-200 bg-brand-light/30">
-                            <td className="py-4 px-4 font-medium text-gray-700">3x per week</td>
-                            <td className="py-4 px-4 text-center text-brand-primary font-bold text-xl">$85</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <div className="grid md:grid-cols-2 gap-4 mb-8">
+                      {/* In-Person Training */}
+                      <div className="bg-brand-navy/10 border-2 border-brand-navy rounded-xl p-5">
+                        <p className="text-lg text-brand-dark font-bold mb-3">
+                          In-Person Training
+                        </p>
+                        <p className="text-3xl text-brand-primary font-bold mb-4">
+                          $95
+                        </p>
+                        <p className="text-sm text-gray-600 mb-4">per session</p>
+                        <div className="bg-white/60 rounded-lg p-3 border border-brand-navy/30">
+                          <p className="text-sm text-brand-dark font-semibold mb-1">
+                            Compulsory Gym Membership:
+                          </p>
+                          <p className="text-sm font-bold text-brand-primary mb-2">
+                            $18.95 per week
+                          </p>
+                          <p className="text-xs text-gray-600">
+                            Includes 24 hour gym access and programs outside of sessions
+                          </p>
+                        </div>
+                      </div>
 
-                    <div className="bg-brand-navy/10 border-2 border-brand-navy rounded-xl p-5 mb-6">
-                      <p className="text-base text-brand-dark font-bold mb-2">
-                        Compulsory Gym Membership: $18.95 per week
-                      </p>
-                      <p className="text-sm text-gray-700">
-                        Includes 24 hour gym access and programs outside of sessions
-                      </p>
+                      {/* Remote Training */}
+                      <div className="bg-brand-primary/10 border-2 border-brand-primary rounded-xl p-5">
+                        <p className="text-lg text-brand-dark font-bold mb-3">
+                          Remote Training
+                        </p>
+                        <p className="text-3xl text-brand-primary font-bold mb-4">
+                          $50
+                        </p>
+                        <p className="text-sm text-gray-600 mb-4">per week</p>
+                        <p className="text-xs font-semibold text-brand-dark mb-2">Includes:</p>
+                        <ul className="space-y-1.5">
+                          <li className="flex items-start gap-2 text-xs text-gray-700">
+                            <svg className="w-3.5 h-3.5 text-brand-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span>Initial assessment</span>
+                          </li>
+                          <li className="flex items-start gap-2 text-xs text-gray-700">
+                            <svg className="w-3.5 h-3.5 text-brand-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span>Monthly 1-1 in person session</span>
+                          </li>
+                          <li className="flex items-start gap-2 text-xs text-gray-700">
+                            <svg className="w-3.5 h-3.5 text-brand-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span>Ongoing personalised training</span>
+                          </li>
+                          <li className="flex items-start gap-2 text-xs text-gray-700">
+                            <svg className="w-3.5 h-3.5 text-brand-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span>Training package via TrainHeroic app</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </>
-                )}
+                ) : null}
               </div>
 
               <button
-                onClick={scrollToContact}
+                onClick={openBookingModal}
                 className="w-full bg-brand-primary hover:bg-brand-accent text-white py-3 px-6 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md mt-auto"
               >
                 {service.type === 'single' ? 'Book Now' : 'Get Started'}
@@ -143,6 +157,9 @@ const Services = () => {
           ))}
         </div>
       </div>
+
+      {/* Booking Modal */}
+      <BookingFormModal isOpen={isBookingOpen} onClose={closeBookingModal} />
     </section>
   );
 };

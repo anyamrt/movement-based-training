@@ -1,4 +1,9 @@
+import { useModal } from '../hooks/useModal';
+import ContactFormModal from './ContactFormModal';
+
 const Contact = () => {
+  const { isOpen: isContactOpen, openModal: openContactModal, closeModal: closeContactModal } = useModal();
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-brand-light to-white">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -96,14 +101,14 @@ const Contact = () => {
             </p>
 
             <div className="space-y-4">
-              <a
-                href="mailto:movementbasedtraining@gmail.com"
+              <button
+                onClick={openContactModal}
                 className="block w-full bg-white hover:bg-gray-100 text-brand-primary py-4 px-6 rounded-full font-semibold text-center transition-all transform hover:scale-105 shadow-lg"
               >
-                Send an Email
-              </a>
+                Send us a Message
+              </button>
               <p className="text-center text-sm text-white/75">
-                Or use the Calendly booking system (coming soon)
+                Get in touch with any questions or inquiries
               </p>
             </div>
 
@@ -147,6 +152,9 @@ const Contact = () => {
           </p>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactFormModal isOpen={isContactOpen} onClose={closeContactModal} />
     </section>
   );
 };

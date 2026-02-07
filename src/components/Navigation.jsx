@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import logo from '../assets/images/logo.png';
+import { useModal } from '../hooks/useModal';
+import BookingFormModal from './BookingFormModal';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isOpen: isBookingOpen, openModal: openBookingModal, closeModal: closeBookingModal } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +67,7 @@ const Navigation = () => {
               </button>
             ))}
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={openBookingModal}
               className="bg-brand-primary hover:bg-brand-accent text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 shadow-md"
             >
               Book Now
@@ -100,7 +103,10 @@ const Navigation = () => {
               </button>
             ))}
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => {
+                openBookingModal();
+                setIsMobileMenuOpen(false);
+              }}
               className="w-full mt-4 bg-brand-primary hover:bg-brand-accent text-white px-6 py-3 rounded-full font-medium transition-all shadow-md"
             >
               Book Now
@@ -108,6 +114,9 @@ const Navigation = () => {
           </div>
         )}
       </div>
+
+      {/* Booking Modal */}
+      <BookingFormModal isOpen={isBookingOpen} onClose={closeBookingModal} />
     </nav>
   );
 };

@@ -1,4 +1,9 @@
+import { useModal } from '../hooks/useModal';
+import BookingFormModal from './BookingFormModal';
+
 const Hero = () => {
+  const { isOpen: isBookingOpen, openModal: openBookingModal, closeModal: closeBookingModal } = useModal();
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -40,7 +45,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={openBookingModal}
               className="bg-brand-primary hover:bg-brand-accent text-white px-10 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-xl w-full sm:w-auto"
             >
               Book Your Session
@@ -61,6 +66,9 @@ const Hero = () => {
           </svg>
         </div>
       </div>
+
+      {/* Booking Modal */}
+      <BookingFormModal isOpen={isBookingOpen} onClose={closeBookingModal} />
     </section>
   );
 };
