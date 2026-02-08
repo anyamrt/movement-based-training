@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useModal } from '../hooks/useModal';
 import BookingFormModal from './BookingFormModal';
 
 const Services = () => {
   const { isOpen: isBookingOpen, openModal: openBookingModal, closeModal: closeBookingModal } = useModal();
+  const [selectedService, setSelectedService] = useState(null);
 
   const services = [
     {
@@ -148,7 +150,10 @@ const Services = () => {
               </div>
 
               <button
-                onClick={openBookingModal}
+                onClick={() => {
+                  setSelectedService(service);
+                  openBookingModal();
+                }}
                 className="w-full bg-brand-primary hover:bg-brand-accent text-white py-3 px-6 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md mt-auto"
               >
                 {service.type === 'single' ? 'Book Now' : 'Get Started'}
@@ -159,7 +164,14 @@ const Services = () => {
       </div>
 
       {/* Booking Modal */}
-      <BookingFormModal isOpen={isBookingOpen} onClose={closeBookingModal} />
+      <BookingFormModal
+        isOpen={isBookingOpen}
+        onClose={closeBookingModal}
+        requiresPayment={selectedService?.type === 'single'}
+        amount={selectedService?.type === 'single' ? 19000 : 0}
+        serviceName={selectedService?.title || ''}
+        serviceType={selectedService?.type || ''}
+      />
     </section>
   );
 };

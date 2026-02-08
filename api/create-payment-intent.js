@@ -14,43 +14,69 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, sessionDate, amount } = req.body;
+    const {
+      name,
+      email,
+      phone,
+      sessionDate,
+      preferredTimes,
+      goals,
+      amount,
+      serviceName,
+      serviceType
+    } = req.body;
 
     // Validate required fields
-    if (!name || !sessionDate || !amount) {
-      return res.status(400).json({ error: 'Missing required fields: name, sessionDate, amount' });
+    if (!name || !amount) {
+      return res.status(400).json({ error: 'Missing required fields: name, amount' });
     }
 
-    // Validate amount (should be 9500 for $95.00)
+    // Validate amount
     if (typeof amount !== 'number' || amount <= 0) {
       return res.status(400).json({ error: 'Invalid amount' });
     }
 
-    // Validate session date is in the future
-    const selectedDate = new Date(sessionDate);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    // Validate session date is in the future (if provided)
+    if (sessionDate) {
+      const selectedDate = new Date(sessionDate);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
-    if (selectedDate < today) {
-      return res.status(400).json({ error: 'Session date must be in the future' });
+      if (selectedDate < today) {
+        return res.status(400).json({ error: 'Session date must be in the future' });
+      }
     }
 
     // Initialize Stripe
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+    // Build metadata object
+    const metadata = {
+      customerName: name,
+      ...(email && { customerEmail: email }),
+      ...(phone && { customerPhone: phone }),
+      ...(sessionDate && { sessionDate }),
+      ...(preferredTimes && { preferredTimes: preferredTimes.substring(0, 500) }), // Stripe metadata limit
+      ...(goals && { goals: goals.substring(0, 500) }), // Stripe metadata limit
+      ...(serviceName && { serviceName }),
+      ...(serviceType && { serviceType }),
+    };
+
+    // Build description
+    const description = sessionDate
+      ? `Training session for ${name} on ${sessionDate}`
+      : `${serviceName || 'Training'} booking for ${name}`;
+
     // Create PaymentIntent
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount, // Amount in cents (9500 = $95.00)
+      amount: amount, // Amount in cents
       currency: 'aud', // Australian dollars
       automatic_payment_methods: {
         enabled: true,
       },
-      metadata: {
-        customerName: name,
-        sessionDate: sessionDate,
-        service: 'Single Training Session',
-      },
-      description: `Training session for ${name} on ${sessionDate}`,
+      metadata,
+      description,
+      ...(email && { receipt_email: email }), // Send receipt to customer if email provided
     });
 
     console.log('PaymentIntent created:', paymentIntent.id);
